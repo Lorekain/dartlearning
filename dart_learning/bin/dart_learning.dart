@@ -5,7 +5,18 @@ import 'dart:convert'; // json
 
 const String token = '7331024389:AAEQENPYA49rzDZhZITWkmOTLH-9yUeUv7o';
 
-
+sendMessage(chatId, text) async {
+  final sendMessageUrl = Uri.parse('https://api.telegram.org/bot$token/sendMessage');
+  final response = await http.post(sendMessageUrl, body: {
+    'chat_id' : chatId.toString(),
+    'text' : text,    
+  });
+  if (response.statusCode == 200) { 
+    return 200;
+  } else {
+    print ('message didnt delivered (error), status code: ${response.statusCode}');
+  }
+}
 
 void main() async {
   final sendMessageUrl = Uri.parse('https://api.telegram.org/bot$token/sendMessage');
@@ -32,16 +43,7 @@ void main() async {
 
 
             if (text == '/start') {
-                final response = await http.post(sendMessageUrl, body:{
-                  'chat_id' : chatId.toString(),
-                  'text' : 'Привет ты нажал старт бота.'
-                });
-              if (response.statusCode == 200) {
-                print ('Message delivered');
-              } else {
-                print ('error, ${response.statusCode}');
-
-              }
+              sendMessage(chatId, 'Ты отправил сообщение через функцию старт');
             }
           }
 
