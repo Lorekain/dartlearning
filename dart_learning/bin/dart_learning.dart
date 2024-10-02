@@ -25,8 +25,12 @@ Future<String> getCatFact() async {
 
   if (response.statusCode == 200) {
     final randomCatFact = jsonDecode(response.body);
+    print('Факт о котиках успешно отправлен');
     return randomCatFact['fact'];
-  } else {
+    
+  } else 
+  {
+    print('Не получилось подтянуть факт о котиках');
     return '';
   }
 }
@@ -82,20 +86,18 @@ void main() async {
               final chatId = message['chat']['id'];
               final text = message['text'];
 
+              if (updatesData.containsKey('callback_query')) {
+                final callbackQuery = updatesData['callback_query'];
+                final chatId = callbackQuery['message']['chat']['id'];
+                final callbackData = callbackQuery['data'];
 
-
-            if (updatesData.containsKey('callback_query')) {
-  final callbackQuery = updatesData['callback_query'];
-  final chatId = callbackQuery['message']['chat']['id'];
-  final callbackData = callbackQuery['data'];
-
-  // Обработка действий в зависимости от callback_data
-  if (callbackData == 'button_1') {
-    await sendMessage(chatId, 'pl');
-  } else if (callbackData == 'button_2') {
-      await sendMessage(chatId, getCatFact().toString());
-  }
-}
+                // Обработка действий в зависимости от callback_data
+                if (callbackData == 'button_1') {
+                  await sendMessage(chatId, 'pl');
+                } else if (callbackData == 'button_2') {
+                  await sendMessage(chatId, getCatFact().toString());
+                }
+              }
 
               if (text == '/options') {
                 sendMessageWithButtons(chatId);
