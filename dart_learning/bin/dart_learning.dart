@@ -5,7 +5,7 @@ import 'dart:convert'; // json
 
 const String token = '7331024389:AAEQENPYA49rzDZhZITWkmOTLH-9yUeUv7o';
 
-sendMessage(chatId, text) async {
+sendMessage(int chatId, String text) async {
   final sendMessageUrl = Uri.parse('https://api.telegram.org/bot$token/sendMessage');
   final response = await http.post(sendMessageUrl, body: {
     'chat_id' : chatId.toString(),
@@ -18,10 +18,48 @@ sendMessage(chatId, text) async {
   }
 }
 
+
+Future<void> sendMessageWithButtons(int chatId) async {
+  final sendMessageUrl = Uri.parse('https://api.telegram.org/bot$token/sendMessage');
+
+    final inlineKeyboard = {
+    'inline_keyboard': [
+      [
+        {
+          'text': 'Перша піпка',
+          'callback_data': 'button_1'
+        }
+      ],
+      [
+        {
+          'text': 'Друга піпка',
+          'callback_data': 'button_2'
+        }
+      ]
+    ]
+  };
+
+
+  final response = await http.post(sendMessageUrl, body: {
+    'chat_id': chatId.toString(),
+    'text': 'with buttons',
+    'reply_markup': jsonEncode(inlineKeyboard), 
+  });
+
+  if (response.statusCode == 200) {
+    print('Сообщение с кнопками отправлено.');
+  } else {
+    print('Ошибка при отправке сообщения: ${response.statusCode}');
+  }
+}
+
+
 void main() async {
   final sendMessageUrl = Uri.parse('https://api.telegram.org/bot$token/sendMessage');
   final getUpdatesUrl = Uri.parse('https://api.telegram.org/bot$token/getUpdates');
+  int lastUpdateId = 0;
 
+  
   final response = await http.get(getUpdatesUrl);
 
   if (response.statusCode == 200) {
@@ -42,8 +80,8 @@ void main() async {
 
 
 
-            if (text == '/start') {
-              sendMessage(chatId, 'Ты отправил сообщение через функцию старт');
+            if (text == '/options') {
+              sendMessageWithButtons(chatId);
             }
           }
 
