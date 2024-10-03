@@ -23,7 +23,7 @@ Future sendMessage(int chatId, String text) async {
 Future<String> translate(String text) async {
   final translator = GoogleTranslator();
   var translation = await translator.translate(text, to: 'uk');
-  return '$translation';
+  return translation.text;
 
 }
 Future<String> catApi() async{
