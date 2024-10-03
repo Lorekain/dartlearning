@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:http/http.dart' as http; // http request and responses
 import 'dart:convert'; // json
+import 'package:translator/translator.dart';
 
 const String token = '7331024389:AAEQENPYA49rzDZhZITWkmOTLH-9yUeUv7o';
 // Функция отправки сообщения на вход принимает кому и сам текст отправки
@@ -17,6 +18,13 @@ Future sendMessage(int chatId, String text) async {
     print(
         'Сообщение не отправлено, status code: ${response.statusCode}');
   }
+}
+
+Future<String> translate(String text) async {
+  final translator = GoogleTranslator();
+  var translation = await translator.translate(text, to: 'uk');
+  return '$translation';
+
 }
 Future<String> catApi() async{
   final String apiKey = 'live_t0hv3sUJS31fd7UYQpxbVM0Y8WnSaSDq1dLhR3aj5JObLvLhFVMXM1UyeSjR6XOL';
@@ -50,17 +58,18 @@ Future<void> sendMessageWithButtons(int chatId) async {
   final inlineKeyboard = {
     'inline_keyboard': [
       [
-        {'text': 'Перша піпка', 'callback_data': 'button_1'}
+        {'text': 'Перша подушечка', 'callback_data': 'button_1'}
       ],
       [
-        {'text': 'Взнати цікавий факт про кітиків', 'callback_data': 'button_2'}
+        {'text': 'Взнати цікавий факт', 'callback_data': 'button_2'},
+        {'text': 'Випадкове фото', 'callback_data': 'button_3'}
       ]
     ]
   };
 
   final response = await http.post(sendMessageUrl, body: {
     'chat_id': chatId.toString(),
-    'text': 'Повідомлення з піпками',
+    'text': 'Виберіть функцію яка вас цікавить! 🐾',
     'reply_markup': jsonEncode(inlineKeyboard),
   });
 
@@ -97,10 +106,14 @@ void main() async {
 
               // Обробка callback_data
               if (callbackData == 'button_1') {
-                await sendMessage(chatId, 'Ви натиснули першу кнопку');
+                await sendMessage(chatId, 'Ви натиснули першу подушечку');
               } else if (callbackData == 'button_2') {
-                final String catFact = await getCatFact(); // Чекаємо на факт про кота
-                await sendMessage(chatId, catFact);
+                final String catFactUkranian = await translate(await getCatFact());
+                  await sendMessage(chatId, catFactUkranian);
+                
+              } else if (callbackData == 'button_3') {
+                sendMessage(chatId, await catApi());
+
               }
 
               // Оновлюємо offset після обробки callback_query
@@ -129,6 +142,6 @@ void main() async {
       }
     }
 
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(seconds: 2));
   }
 }
