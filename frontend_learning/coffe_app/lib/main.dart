@@ -9,6 +9,9 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+    const String font = 'Rosarivo';
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -29,7 +32,7 @@ class MainApp extends StatelessWidget {
                           style: TextStyle(
                             color: Color(0x80EFE3C8),
                             fontSize: 36,
-                            fontFamily: 'Rosarivo',
+                            fontFamily: font,
                             fontStyle: FontStyle.normal,
                           ),
                         ),
@@ -88,24 +91,22 @@ class MainApp extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 40,
-              ),
               Expanded(
                 child: ListView(
                   children: [
                     Column(
                       children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                         // mainAxisAlignment: MainAxisAlignment.start,
                           children: [
+                            
                             Container(
-                              //padding: EdgeInsets.all(12),
-                              padding: EdgeInsets.only(top: 12, left: 12, right: 12),
+                              padding: EdgeInsets.all(12),
+                             // padding: EdgeInsets.only(top: 12, left: 12, right: 12),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15),
                                   color: Color(0x1AFFFFFF)),
-                              margin: EdgeInsets.only(left: 63, bottom: 16),
+                              margin: EdgeInsets.only(left: 63, top: 16),
                               height: 235, // было 230 нужно убрать падинги снизу
                               width: 130, // было 130 по макету
                               child: Column(
@@ -139,7 +140,7 @@ class MainApp extends StatelessWidget {
                                       children: [
                                         SizedBox(width: 22),
                                         Text(
-                                          '₹99',
+                                          '₹991',
                                           style: TextStyle(
                                             color: Color(0xFFFFFFFF),
                                             fontSize: 16,
@@ -174,7 +175,7 @@ class MainApp extends StatelessWidget {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15),
                                   color: Color(0x1AFFFFFF)),
-                              margin: EdgeInsets.only(left: 16, bottom: 16), // 16 po maketu
+                              margin: EdgeInsets.only(left: 16, top: 16), // 16 po maketu
                               height: 235, // было 230 нужно убрать падинги снизу
                               width: 130, // было 130 по макету
                               child: Column(
@@ -247,7 +248,7 @@ class MainApp extends StatelessWidget {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15),
                                   color: Color(0x1AFFFFFF)),
-                              margin: EdgeInsets.only(left: 63, bottom: 16),
+                              margin: EdgeInsets.only(left: 63, top: 16),
                               height: 235, // было 230 нужно убрать падинги снизу
                               width: 130, // было 130 по макету
                               child: Column(
@@ -316,7 +317,7 @@ class MainApp extends StatelessWidget {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15),
                                   color: Color(0x1AFFFFFF)),
-                              margin: EdgeInsets.only(left: 16, bottom: 16), // 16 po maketu
+                              margin: EdgeInsets.only(left: 16, top: 16), // 16 po maketu
                               height: 235, // было 230 нужно убрать падинги снизу
                               width: 130, // было 130 по макету
                               child: Column(
