@@ -9,12 +9,61 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     const String font = 'Rosarivo';
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          unselectedItemColor: Color.fromARGB(255, 110, 108, 101),
+
+          fixedColor: Color(0xFFEFE3C8),
+          backgroundColor: Color(0xFF22151F),
+          type: BottomNavigationBarType.fixed,
+
+          iconSize: 36,
+
+          currentIndex: 0,
+          // onTap: (){},
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Container(
+                padding: EdgeInsets.only(top: 10),
+                height: 36, // Высота контейнера, если нужно
+                alignment: Alignment.center,
+                child: Icon(Icons.home),
+              ),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Container(
+                padding: EdgeInsets.only(top: 10),
+                height: 36, // Высота контейнера, если нужно
+                alignment: Alignment.center,
+                child: Icon(Icons.shopping_cart),
+              ),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Container(
+                padding: EdgeInsets.only(top: 10),
+                height: 36, // Высота контейнера, если нужно
+                alignment: Alignment.center,
+                child: Icon(Icons.add),
+              ),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Container(
+                padding: EdgeInsets.only(top: 10),
+                height: 36, // Высота контейнера, если нужно
+                alignment: Alignment.center,
+                child: Icon(Icons.add),
+              ),
+              label: '',
+            ),
+          ],
+        ),
         backgroundColor: const Color(0xFF201520),
         body: SafeArea(
           child: Column(
@@ -23,7 +72,10 @@ class MainApp extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    margin: const EdgeInsets.only(left: 16, top: 32,),
+                    margin: const EdgeInsets.only(
+                      left: 16,
+                      top: 32,
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [
@@ -67,8 +119,12 @@ class MainApp extends StatelessWidget {
                 ],
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 45, horizontal: 16),
+                padding: const EdgeInsets.only(
+                    top: 45,
+                    left: 16,
+                    right: 16,
+                    bottom: 10), // по макету 20 снизу
+
                 child: TextField(
                   style: const TextStyle(
                       color: Color(0x80EFE3C8),
@@ -97,287 +153,373 @@ class MainApp extends StatelessWidget {
                     Column(
                       children: [
                         Row(
-                         // mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            
-                            Container(
-                              padding: EdgeInsets.all(12),
-                             // padding: EdgeInsets.only(top: 12, left: 12, right: 12),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15),
-                                  color: Color(0x1AFFFFFF)),
-                              margin: EdgeInsets.only(left: 63, top: 16),
-                              height: 235, // было 230 нужно убрать падинги снизу
-                              width: 130, // было 130 по макету
-                              child: Column(
-                                children: [
-                                  //SizedBox(height: 12),
-                                  Image.asset(
-                                    'assets/png/cappuchino.png',
-                                    width: 111,
-                                    height: 111,
-                                  ),
-                                  SizedBox(height: 8),
-                                  Text(
-                                    'Cinnamon & Cocoa',
-                                    style: TextStyle(
-                                      color: Color(0xFFFFFFFF),
-                                      fontSize: 14,
-                                      fontFamily: 'Rosarivo',
-                                      // fontWeight: FontWeight.w400,
-                                      // height: 0.6,
-                                    ),
-                                  ),
-                                  SizedBox(height: 13),
-                                  Container(
-                                    width: 111,
-                                    height: 39,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      color: Color(0x14FFFFFF),
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        SizedBox(width: 22),
-                                        Text(
-                                          '₹991',
-                                          style: TextStyle(
-                                            color: Color(0xFFFFFFFF),
-                                            fontSize: 16,
-                                            fontFamily: 'Rosarivo',
-                                            fontWeight: FontWeight.w600,
-                                            // height: 0.6,
-                                          ),
-                                        ),
-                                        SizedBox(width: 15,),
-                                        Container(
-                                          width: 39,
-                                          height: 39,
-                                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(13),
-                                          color: Color(0xFFEFE3C8),),
-                                          
-                                          
-                                            child: IconButton(
-                                          onPressed: () {},
-                                          icon: Icon(Icons.add),
-                                          color: Colors.black,  
-                                        ))
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            //SizedBox(width: 30),
-                             Container(
-                              //padding: EdgeInsets.all(12),
-                              padding: EdgeInsets.only(top: 12, left: 12, right: 12),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15),
-                                  color: Color(0x1AFFFFFF)),
-                              margin: EdgeInsets.only(left: 16, top: 16), // 16 po maketu
-                              height: 235, // было 230 нужно убрать падинги снизу
-                              width: 130, // было 130 по макету
-                              child: Column(
-                                children: [
-                                  //SizedBox(height: 12),
-                                  Image.asset(
-                                    'assets/png/caramel.png',
-                                    width: 111,
-                                    height: 111,
-                                  ),
-                                  SizedBox(height: 8),
-                                  Text(
-                                    'Drizzled with Caramel',
-                                    style: TextStyle(
-                                      color: Color(0xFFFFFFFF),
-                                      fontSize: 14,
-                                      fontFamily: 'Rosarivo',
-                                      // fontWeight: FontWeight.w400,
-                                      // height: 0.6,
-                                    ),
-                                  ),
-                                  SizedBox(height: 13),
-                                  Container(
-                                    width: 111,
-                                    height: 39,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      color: Color(0x14FFFFFF),
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        SizedBox(width: 22),
-                                        Text(
-                                          '₹99',
-                                          style: TextStyle(
-                                            color: Color(0xFFFFFFFF),
-                                            fontSize: 16,
-                                            fontFamily: 'Rosarivo',
-                                            fontWeight: FontWeight.w600,
-                                            // height: 0.6,
-                                          ),
-                                        ),
-                                        SizedBox(width: 15,),
-                                        Container(
-                                          width: 39,
-                                          height: 39,
-                                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(13),
-                                          color: Color(0xFFEFE3C8),),
-                                          
-                                          
-                                            child: IconButton(
-                                          onPressed: () {},
-                                          icon: Icon(Icons.add),
-                                          color: Colors.black,  
-                                        ))
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
                           mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              //padding: EdgeInsets.all(12),
-                              padding: EdgeInsets.only(top: 12, left: 12, right: 12),
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15),
-                                  color: Color(0x1AFFFFFF)),
-                              margin: EdgeInsets.only(left: 63, top: 16),
-                              height: 235, // было 230 нужно убрать падинги снизу
-                              width: 130, // было 130 по макету
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(40)),
+                                color: Color(0xFF704341).withOpacity(0.3),
+                              ),
+                              width: 40,
+                              height: 700,
                               child: Column(
                                 children: [
-                                  //SizedBox(height: 12),
-                                  Image.asset(
-                                    'assets/png/blueberry.png',
-                                    width: 111,
-                                    height: 111,
-                                  ),
-                                  SizedBox(height: 8),
-                                  Text(
-                                    'Bursting Blueberry',
-                                    style: TextStyle(
-                                      color: Color(0xFFFFFFFF),
-                                      fontSize: 14,
-                                      fontFamily: 'Rosarivo',
-                                      // fontWeight: FontWeight.w400,
-                                      // height: 0.6,
-                                    ),
-                                  ),
-                                  SizedBox(height: 13),
-                                  Container(
-                                    width: 111,
-                                    height: 39,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      color: Color(0x14FFFFFF),
-                                    ),
+                                  RotatedBox(
+                                    quarterTurns: 3,
                                     child: Row(
                                       children: [
-                                        SizedBox(width: 22),
-                                        Text(
-                                          '₹99',
+                                         Text(
+                                          'Flat White',
                                           style: TextStyle(
-                                            color: Color(0xFFFFFFFF),
+                                            color: Color(0xFFEFE3C8).withOpacity(0.5),
                                             fontSize: 16,
                                             fontFamily: 'Rosarivo',
-                                            fontWeight: FontWeight.w600,
-                                            // height: 0.6,
                                           ),
                                         ),
-                                        SizedBox(width: 15,),
-                                        Container(
-                                          width: 39,
-                                          height: 39,
-                                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(13),
-                                          color: Color(0xFFEFE3C8),),
-                                          
-                                          
-                                            child: IconButton(
-                                          onPressed: () {},
-                                          icon: Icon(Icons.add),
-                                          color: Colors.black,  
-                                        ))
+                                        SizedBox(width: 35),
+                                          SizedBox(width: 35),
+                                           Text(
+                                          'Espresso',
+                                          style: TextStyle(
+                                            color: Color(0xFFEFE3C8).withOpacity(0.5),
+                                            fontSize: 16,
+                                            fontFamily: 'Rosarivo',
+                                          ),
+                                        ),
+                                        SizedBox(width: 35),
+
+                                    
+                                        Text(
+                                          'Americano',
+                                          style: TextStyle(
+                                            color: Color(0xFFEFE3C8).withOpacity(0.5),
+                                            fontSize: 16,
+                                            fontFamily: 'Rosarivo',
+                                          ),
+                                        ),
+                                        SizedBox(width: 35),
+                                          Text(
+                                          'Latte',
+                                          style: TextStyle(
+                                            color: Color(0xFFEFE3C8).withOpacity(0.5),
+                                            fontSize: 16,
+                                            fontFamily: 'Rosarivo',
+                                          ),
+                                        ),
+                                        SizedBox(width: 35),
+                                          Text(
+                                          'Cappuccino',
+                                          style: TextStyle(
+                                             color: Color(0xFFEFE3C8),
+                                            fontSize: 16,
+                                            fontFamily: 'Rosarivo',
+                                          ),
+                                        ),
+                                        SizedBox(width: 30),
                                       ],
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                             ),
-                            //SizedBox(width: 30),
-                             Container(
-                              //padding: EdgeInsets.all(12),
-                              padding: EdgeInsets.only(top: 12, left: 12, right: 12),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15),
-                                  color: Color(0x1AFFFFFF)),
-                              margin: EdgeInsets.only(left: 16, top: 16), // 16 po maketu
-                              height: 235, // было 230 нужно убрать падинги снизу
-                              width: 130, // было 130 по макету
-                              child: Column(
-                                children: [
-                                  //SizedBox(height: 12),
-                                  Image.asset(
-                                    'assets/png/macha.png',
-                                    width: 111,
-                                    height: 111,
-                                  ),
-                                  SizedBox(height: 8),
-                                  Text(
-                                    'Dalgona Whipped Macha',
-                                    style: TextStyle(
-                                      color: Color(0xFFFFFFFF),
-                                      fontSize: 14,
-                                      fontFamily: 'Rosarivo',
-                                      // fontWeight: FontWeight.w400,
-                                      // height: 0.6,
-                                    ),
-                                  ),
-                                  SizedBox(height: 13),
-                                  Container(
-                                    width: 111,
-                                    height: 39,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      color: Color(0x14FFFFFF),
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        SizedBox(width: 22),
-                                        Text(
-                                          '₹99',
-                                          style: TextStyle(
-                                            color: Color(0xFFFFFFFF),
-                                            fontSize: 16,
-                                            fontFamily: 'Rosarivo',
-                                            fontWeight: FontWeight.w600,
-                                            // height: 0.6,
+                            Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.all(12),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(15),
+                                        color: Color(0x1AFFFFFF),
+                                      ),
+                                      margin:
+                                          EdgeInsets.only(left: 35, top: 16),
+                                      height: 235,
+                                      width: 130,
+                                      child: Column(
+                                        children: [
+                                          Image.asset(
+                                            'assets/png/cappuchino.png',
+                                            width: 111,
+                                            height: 111,
                                           ),
-                                        ),
-                                        SizedBox(width: 15,),
-                                        Container(
-                                          width: 39,
-                                          height: 39,
-                                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(13),
-                                          color: Color(0xFFEFE3C8),),
-                                          
-                                          
-                                            child: IconButton(
-                                          onPressed: () {},
-                                          icon: Icon(Icons.add),
-                                          color: Colors.black,  
-                                        ))
-                                      ],
+                                          SizedBox(height: 8),
+                                          Text(
+                                            'Cinnamon & Cocoa',
+                                            style: TextStyle(
+                                              color: Color(0xFFFFFFFF),
+                                              fontSize: 14,
+                                              fontFamily: 'Rosarivo',
+                                            ),
+                                          ),
+                                          SizedBox(height: 13),
+                                          Container(
+                                            width: 111,
+                                            height: 39,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(15),
+                                              color: Color(0x14FFFFFF),
+                                            ),
+                                            child: Row(
+                                              children: [
+                                                SizedBox(width: 22),
+                                                Text(
+                                                  '₹91',
+                                                  style: TextStyle(
+                                                    color: Color(0xFFFFFFFF),
+                                                    fontSize: 16,
+                                                    fontFamily: 'Rosarivo',
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                                ),
+                                                SizedBox(width: 20),
+                                                Container(
+                                                  width: 39,
+                                                  height: 39,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            13),
+                                                    color: Color(0xFFEFE3C8),
+                                                  ),
+                                                  child: IconButton(
+                                                    onPressed: () {},
+                                                    icon: Icon(Icons.add),
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                  )
-                                ],
-                              ),
+                                    SizedBox(width: 16),
+                                    Container(
+                                      padding: EdgeInsets.only(
+                                          top: 12, left: 12, right: 12),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(15),
+                                        color: Color(0x1AFFFFFF),
+                                      ),
+                                      margin:
+                                          EdgeInsets.only(left: 16, top: 16),
+                                      height: 235,
+                                      width: 130,
+                                      child: Column(
+                                        children: [
+                                          Image.asset(
+                                            'assets/png/caramel.png',
+                                            width: 111,
+                                            height: 111,
+                                          ),
+                                          SizedBox(height: 8),
+                                          Text(
+                                            'Drizzled with Caramel',
+                                            style: TextStyle(
+                                              color: Color(0xFFFFFFFF),
+                                              fontSize: 14,
+                                              fontFamily: 'Rosarivo',
+                                            ),
+                                          ),
+                                          SizedBox(height: 13),
+                                          Container(
+                                            width: 111,
+                                            height: 39,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(15),
+                                              color: Color(0x14FFFFFF),
+                                            ),
+                                            child: Row(
+                                              children: [
+                                                SizedBox(width: 22),
+                                                Text(
+                                                  '₹99',
+                                                  style: TextStyle(
+                                                    color: Color(0xFFFFFFFF),
+                                                    fontSize: 16,
+                                                    fontFamily: 'Rosarivo',
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                                ),
+                                                SizedBox(width: 15),
+                                                Container(
+                                                  width: 39,
+                                                  height: 39,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            13),
+                                                    color: Color(0xFFEFE3C8),
+                                                  ),
+                                                  child: IconButton(
+                                                    onPressed: () {},
+                                                    icon: Icon(Icons.add),
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                // Второй ряд карточек
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.only(
+                                          top: 12, left: 12, right: 12),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(15),
+                                        color: Color(0x1AFFFFFF),
+                                      ),
+                                      margin:
+                                          EdgeInsets.only(left: 35, top: 16),
+                                      height: 235,
+                                      width: 130,
+                                      child: Column(
+                                        children: [
+                                          Image.asset(
+                                            'assets/png/blueberry.png',
+                                            width: 111,
+                                            height: 111,
+                                          ),
+                                          SizedBox(height: 8),
+                                          Text(
+                                            'Bursting Blueberry',
+                                            style: TextStyle(
+                                              color: Color(0xFFFFFFFF),
+                                              fontSize: 14,
+                                              fontFamily: 'Rosarivo',
+                                            ),
+                                          ),
+                                          SizedBox(height: 13),
+                                          Container(
+                                            width: 111,
+                                            height: 39,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(15),
+                                              color: Color(0x14FFFFFF),
+                                            ),
+                                            child: Row(
+                                              children: [
+                                                SizedBox(width: 22),
+                                                Text(
+                                                  '₹99',
+                                                  style: TextStyle(
+                                                    color: Color(0xFFFFFFFF),
+                                                    fontSize: 16,
+                                                    fontFamily: 'Rosarivo',
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                                ),
+                                                SizedBox(width: 15),
+                                                Container(
+                                                  width: 39,
+                                                  height: 39,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            13),
+                                                    color: Color(0xFFEFE3C8),
+                                                  ),
+                                                  child: IconButton(
+                                                    onPressed: () {},
+                                                    icon: Icon(Icons.add),
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(width: 16),
+                                  
+                                    Container(
+                                      padding: EdgeInsets.only(
+                                          top: 12, left: 12, right: 12),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(15),
+                                        color: Color(0x1AFFFFFF),
+                                      ),
+                                      margin:
+                                          EdgeInsets.only(left: 16, top: 16),
+                                      height: 235,
+                                      width: 130,
+                                      child: Column(
+                                        children: [
+                                          Image.asset(
+                                            'assets/png/cappuchino.png',
+                                            width: 111,
+                                            height: 111,
+                                          ),
+                                          SizedBox(height: 8),
+                                          Text(
+                                            'Dalgona Whipped',
+                                            style: TextStyle(
+                                              color: Color(0xFFFFFFFF),
+                                              fontSize: 14,
+                                              fontFamily: 'Rosarivo',
+                                            ),
+                                          ),
+                                          SizedBox(height: 13),
+                                          Container(
+                                            width: 111,
+                                            height: 39,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(15),
+                                              color: Color(0x14FFFFFF),
+                                            ),
+                                            child: Row(
+                                              children: [
+                                                SizedBox(width: 22),
+                                                Text(
+                                                  '₹99',
+                                                  style: TextStyle(
+                                                    color: Color(0xFFFFFFFF),
+                                                    fontSize: 16,
+                                                    fontFamily: 'Rosarivo',
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                                ),
+                                                SizedBox(width: 15),
+                                                Container(
+                                                  width: 39,
+                                                  height: 39,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            13),
+                                                    color: Color(0xFFEFE3C8),
+                                                  ),
+                                                  child: IconButton(
+                                                    onPressed: () {},
+                                                    icon: Icon(Icons.add),
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ],
                         ),
