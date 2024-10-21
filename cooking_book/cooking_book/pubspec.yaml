@@ -1,0 +1,28 @@
+name: cooking_book
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/fonts/
+  fonts:
+    - family: Sweet Mavka Script
+      fonts:
+        - asset: assets/fonts/Sweet-Mavka-Script.otf
+    - family: pershotravneva55-regular
+      fonts: 
+        - asset: assets/fonts/pershotravneva55-regular.ttf

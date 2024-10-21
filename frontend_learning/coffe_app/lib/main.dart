@@ -1,3 +1,4 @@
+import 'package:coffe_app/product_card.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,8 +10,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String font = 'Rosarivo';
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -84,7 +83,7 @@ class MainApp extends StatelessWidget {
                           style: TextStyle(
                             color: Color(0x80EFE3C8),
                             fontSize: 36,
-                            fontFamily: font,
+                            fontFamily: 'Rosarivo',
                             fontStyle: FontStyle.normal,
                           ),
                         ),
@@ -170,49 +169,51 @@ class MainApp extends StatelessWidget {
                                     quarterTurns: 3,
                                     child: Row(
                                       children: [
-                                         Text(
+                                        Text(
                                           'Flat White',
                                           style: TextStyle(
-                                            color: Color(0xFFEFE3C8).withOpacity(0.5),
+                                            color: Color(0xFFEFE3C8)
+                                                .withOpacity(0.5),
                                             fontSize: 16,
                                             fontFamily: 'Rosarivo',
                                           ),
                                         ),
                                         SizedBox(width: 35),
-                                          SizedBox(width: 35),
-                                           Text(
+                                        SizedBox(width: 35),
+                                        Text(
                                           'Espresso',
                                           style: TextStyle(
-                                            color: Color(0xFFEFE3C8).withOpacity(0.5),
+                                            color: Color(0xFFEFE3C8)
+                                                .withOpacity(0.5),
                                             fontSize: 16,
                                             fontFamily: 'Rosarivo',
                                           ),
                                         ),
                                         SizedBox(width: 35),
-
-                                    
                                         Text(
                                           'Americano',
                                           style: TextStyle(
-                                            color: Color(0xFFEFE3C8).withOpacity(0.5),
+                                            color: Color(0xFFEFE3C8)
+                                                .withOpacity(0.5),
                                             fontSize: 16,
                                             fontFamily: 'Rosarivo',
                                           ),
                                         ),
                                         SizedBox(width: 35),
-                                          Text(
+                                        Text(
                                           'Latte',
                                           style: TextStyle(
-                                            color: Color(0xFFEFE3C8).withOpacity(0.5),
+                                            color: Color(0xFFEFE3C8)
+                                                .withOpacity(0.5),
                                             fontSize: 16,
                                             fontFamily: 'Rosarivo',
                                           ),
                                         ),
                                         SizedBox(width: 35),
-                                          Text(
+                                        Text(
                                           'Cappuccino',
                                           style: TextStyle(
-                                             color: Color(0xFFEFE3C8),
+                                            color: Color(0xFFEFE3C8),
                                             fontSize: 16,
                                             fontFamily: 'Rosarivo',
                                           ),
@@ -228,75 +229,11 @@ class MainApp extends StatelessWidget {
                               children: [
                                 Row(
                                   children: [
-                                    Container(
-                                      padding: EdgeInsets.all(12),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(15),
-                                        color: Color(0x1AFFFFFF),
-                                      ),
-                                      margin:
-                                          EdgeInsets.only(left: 35, top: 16),
-                                      height: 235,
-                                      width: 130,
-                                      child: Column(
-                                        children: [
-                                          Image.asset(
-                                            'assets/png/cappuchino.png',
-                                            width: 111,
-                                            height: 111,
-                                          ),
-                                          SizedBox(height: 8),
-                                          Text(
-                                            'Cinnamon & Cocoa',
-                                            style: TextStyle(
-                                              color: Color(0xFFFFFFFF),
-                                              fontSize: 14,
-                                              fontFamily: 'Rosarivo',
-                                            ),
-                                          ),
-                                          SizedBox(height: 13),
-                                          Container(
-                                            width: 111,
-                                            height: 39,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(15),
-                                              color: Color(0x14FFFFFF),
-                                            ),
-                                            child: Row(
-                                              children: [
-                                                SizedBox(width: 22),
-                                                Text(
-                                                  '₹91',
-                                                  style: TextStyle(
-                                                    color: Color(0xFFFFFFFF),
-                                                    fontSize: 16,
-                                                    fontFamily: 'Rosarivo',
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
-                                                ),
-                                                SizedBox(width: 20),
-                                                Container(
-                                                  width: 39,
-                                                  height: 39,
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            13),
-                                                    color: Color(0xFFEFE3C8),
-                                                  ),
-                                                  child: IconButton(
-                                                    onPressed: () {},
-                                                    icon: Icon(Icons.add),
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
+                                    // assets/png/cappuchino.png Cinnamon & Cocoa 91
+                                    ProductCard(
+                                        title: 'Cinnamon & Cocoa',
+                                        price: '30',
+                                        imagePath: 'assets/png/cappuchino.png'),
                                     SizedBox(width: 16),
                                     Container(
                                       padding: EdgeInsets.only(
@@ -340,7 +277,8 @@ class MainApp extends StatelessWidget {
                                                 Text(
                                                   '₹99',
                                                   style: TextStyle(
-                                                    color: Color(0xFFFFFFFF),
+                                                    color: Color.fromARGB(
+                                                        255, 226, 86, 86),
                                                     fontSize: 16,
                                                     fontFamily: 'Rosarivo',
                                                     fontWeight: FontWeight.w600,
@@ -446,7 +384,6 @@ class MainApp extends StatelessWidget {
                                       ),
                                     ),
                                     SizedBox(width: 16),
-                                  
                                     Container(
                                       padding: EdgeInsets.only(
                                           top: 12, left: 12, right: 12),
