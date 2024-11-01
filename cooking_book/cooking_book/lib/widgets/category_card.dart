@@ -3,13 +3,15 @@ import "package:flutter/material.dart";
 class CategoryCard extends StatelessWidget {
   final String? categoryTitle;
   final String imagePath;
+  final String pagePath;
   const CategoryCard(
-      {super.key, required this.categoryTitle, required this.imagePath});
+      {super.key,
+      required this.categoryTitle,
+      required this.imagePath,
+      required this.pagePath});
 
   @override
-  Widget build(
-    BuildContext context,
-  ) {
+  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(top: 10),
       decoration: BoxDecoration(
@@ -47,15 +49,20 @@ class CategoryCard extends StatelessWidget {
         const SizedBox(
           height: 5,
         ),
-        InkWell(
-          onTap: () {
-            Navigator.pushNamed(context, '/breakfast');
-          },
-          child: Container(
-            margin: const EdgeInsets.all(8),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(25),
-              child: Image.asset(imagePath),
+        Material(
+          color: Colors.transparent,
+          borderRadius: BorderRadius.circular(20),
+          child: InkWell(
+            splashColor: Colors.grey.withOpacity(0.2),
+            onTap: () {
+              Navigator.pushNamed(context, pagePath);
+            },
+            child: Container(
+              margin: const EdgeInsets.all(8),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(25),
+                child: Image.asset(imagePath),
+              ),
             ),
           ),
         ),

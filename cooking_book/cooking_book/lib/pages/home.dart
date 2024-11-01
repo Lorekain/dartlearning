@@ -23,7 +23,9 @@ class HomePage extends StatelessWidget {
       backgroundColor: const Color(0xFFFBFBFB),
 
       floatingActionButtonLocation: // Кнопка добавити рецепт
+
           FloatingActionButtonLocation.centerDocked,
+
       floatingActionButton: Container(
         margin: const EdgeInsets.only(top: 20),
         width: 65,
@@ -32,7 +34,9 @@ class HomePage extends StatelessWidget {
           backgroundColor: const Color(0xFF90CED4),
           shape: const CircleBorder(),
           elevation: 0,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushNamed('/add');
+          },
           child: const Icon(
             Icons.add,
             color: Colors.white,
@@ -74,10 +78,12 @@ class HomePage extends StatelessWidget {
                         CategoryCard(
                           categoryTitle: 'Сніданок',
                           imagePath: 'assets/img/breakfast.jpg',
+                          pagePath: '/breakfast',
                         ),
                         CategoryCard(
                           categoryTitle: 'Перші страви',
                           imagePath: 'assets/img/evening.jpg',
+                          pagePath: '/breakfast',
                         ),
                       ],
                     ),
@@ -90,10 +96,12 @@ class HomePage extends StatelessWidget {
                         CategoryCard(
                           categoryTitle: 'Салатіки',
                           imagePath: 'assets/img/salat.jpg',
+                          pagePath: '/breakfast',
                         ),
                         CategoryCard(
                           categoryTitle: 'Основні страви',
                           imagePath: 'assets/img/main_dishes_4.jpg',
+                          pagePath: '/breakfast',
                         ),
                       ],
                     ),
@@ -106,10 +114,12 @@ class HomePage extends StatelessWidget {
                         CategoryCard(
                           categoryTitle: 'Гарніри',
                           imagePath: 'assets/img/main_dishes.jpg',
+                          pagePath: '/breakfast',
                         ),
                         CategoryCard(
                           categoryTitle: 'Десерти',
                           imagePath: 'assets/img/deserts.jpg',
+                          pagePath: '/breakfast',
                         ),
                       ],
                     ),
@@ -122,10 +132,12 @@ class HomePage extends StatelessWidget {
                         CategoryCard(
                           categoryTitle: 'Напої',
                           imagePath: 'assets/img/main_dishes.jpg',
+                          pagePath: '/breakfast',
                         ),
                         CategoryCard(
                           categoryTitle: 'Перекус',
                           imagePath: 'assets/img/salat_2.jpg',
+                          pagePath: '/breakfast',
                         ),
                       ],
                     ),
